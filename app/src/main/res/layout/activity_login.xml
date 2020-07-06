@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="이메일"/>
@@ -54,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInputEditTextPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
