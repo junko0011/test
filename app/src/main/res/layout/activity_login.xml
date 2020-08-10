@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!-- layout_gravity 는 전체화면중 layout의 정렬 / gravity는 layout안에 text의 정렬-->
+    <!-- layout_gravity 는 객체가 속한 전체 박스 중 layout의 중앙정렬 / gravity는 layout 자체를 중앙정렬-->
     <TextView
         android:id="@+id/textView로그인"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
         />
 
-
+<!--암기 Input으로 검색하여 TextInputLayout와 TextInputEditText 찾아줌 ; 안드로이드 기본 제공 틀로써 타이핑시 글자가 작아지며 위로 올라감-->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
