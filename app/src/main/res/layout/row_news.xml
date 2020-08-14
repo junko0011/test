@@ -7,14 +7,46 @@
     android:orientation="vertical"
     >
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <!-- A RecyclerView with some commonly used attributes -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
-        android:scrollbars="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/ImageView_title"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@null"
+            android:src="@drawable/icon_login"
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/TextView_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="text"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:background="#70000000"
+            android:ellipsize="marquee"
+            ></TextView>
+
+    </RelativeLayout>
 
 
+    <TextView
+        android:id="@+id/TextView_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="text"
+        android:textSize="30sp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        ></TextView>
 
 </LinearLayout>
