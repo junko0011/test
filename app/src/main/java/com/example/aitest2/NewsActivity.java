@@ -20,6 +20,13 @@ import com.android.volley.toolbox.Volley;
 //import com.google.android.gms.common.api.Response;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class NewsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -64,13 +71,41 @@ public class NewsActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response) { //데이터 가져와
                         //1-6 Display the first 500 characters of the response string. 스트링 내용들을 500자 내로 가져와라
-                        Log.d("News",response); //로그를 가져와서 찍어봐
+                        //Log.d("News",response); //로그를 가져와서 찍어봐
 
-                        //2-1 정상적으로 처리되면 어댑터로 넘겨줘줘 specif an adapter (see also next example)
-                        mAdapter = new MyAdapter(mDataset);
-                        recyclerView.setAdapter(mAdapter);
+                        try {
+                            JSONObject jsonObj = new JSONObject(response);
+                            JSONArray arrayArticles = jsonObj.getJSONArray("articles");
+
+                            //2-2 NewsData.java 생성후 response -> NewsData class 로 분류
+                            List<NewsData> news = new ArrayList<>();
+
+                            for (int i=0, j=arrayArticles.length(); i<j; i++){
+                                JSONObject obj = arrayArticles.getJSONObject(i);
+
+                                Log.d("News",obj.toString());
+
+
+                                NewsData newsData = new NewsData();
+                                newsData.setTitle(obj.getString("title"));
+                                newsData.setUrlToImage(obj.getString("urlToImage"));
+                                newsData.setContent(obj.getString("content"));
+                                news.add(newsData);
+
+                            }
+
+
+
+
+                            //2-1,2-3 정상적으로 처리되면 어댑터로 넘겨줘 specif an adapter (see also next example)
+                            mAdapter = new MyAdapter(news, NewsActivity.this);
+                            recyclerView.setAdapter(mAdapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 }, new Response.ErrorListener() {

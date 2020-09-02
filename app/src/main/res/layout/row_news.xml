@@ -27,13 +27,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
 
-                <ImageView
+<!--                <ImageView
                     android:id="@+id/ImageView_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:src="@drawable/icon_login"
+                    />-->
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/ImageView_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     />
+                    >
 
                 <TextView
                     android:id="@+id/TextView_title"
