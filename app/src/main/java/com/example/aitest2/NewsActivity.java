@@ -100,7 +100,7 @@ public class NewsActivity extends AppCompatActivity {
 
 
                             //2-1,2-3 정상적으로 처리되면 어댑터로 넘겨줘 specif an adapter (see also next example)
-                            mAdapter = new MyAdapter(news);
+                            mAdapter = new MyAdapter(news, NewsActivity.this);
                             recyclerView.setAdapter(mAdapter);
 
                         } catch (JSONException e) {
